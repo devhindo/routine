@@ -1,30 +1,37 @@
 #include <bits/stdc++.h>
-#include <Windows.h>
 using namespace std;
 
-queue<string>tasksQ;
+queue<string> tasksQ;
+map<string, string> cmds = {
+    {"ls", "List tasks"},
+    {"add", "Add a task"},
+    {"rm", "Remove a task"},
+    {"help", "Show this help message"},
+    {"exit", "Exit the program"}
+};
 
-void checkTasksFile() {
+void checkTasksFile()
+{
     string filename = "tasks.txt";
     ifstream tasks;
     tasks.open(filename);
-    if(!tasks.good()) {
+    if (!tasks.good())
+    {
         ofstream newfile(filename);
     }
 }
 
-void load() {
+void load()
+{
     checkTasksFile();
     fstream tasks("tasks.txt");
     string task;
-    while(getline(tasks, task)) {
+    while (getline(tasks, task))
+    {
         tasksQ.push(task);
     }
 }
 
-
-int main() {
-    load();
-    cout << tasksQ.size();
-    cout << tasksQ.front();
+int main()
+{
 }
